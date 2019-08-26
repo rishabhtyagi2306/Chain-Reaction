@@ -2,17 +2,13 @@ body{
     margin: 0;
     padding: 0;
     /*background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);*/
-    
+    overflow:hidden;
     background-size: cover;
     /*background-repeat: no-repeat;*/
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
-canvas{
-    display: block;
-    margin: 0 auto;
-    background: #fff;
-}
+
 
 h1{
     font-family: 'Bree Serif', serif;
