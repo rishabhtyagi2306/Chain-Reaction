@@ -1,8 +1,12 @@
-var arr = new Array(8); //create 1-d array
+
+//create 1-d array
+var arr = new Array(8); 
+
 //create 2d array using 1d array
 for(var i = 0; i<arr.length; i++){
     arr[i]=new Array(8);
 }
+
 // Loop to initilize 2D array elements. 
 for (var i = 0; i < 8; i++) { 
     for (var j = 0; j < 8; j++) { 
@@ -31,28 +35,31 @@ function gameboard(){
             var y =j*80;
             ctx.rect(x,y,80,80);
             ctx.stroke();
+        }
+    }}
            
             
     
             
-        }
-    }}
+    
+ var turn = 1;
+ var cursorX, cursorY;
 
 
 
 
 
-var turn = 1;
-var cursorX, cursorY;
 document.onmousedown = function(e){
     cursorX = e.pageX;
     cursorY = e.pageY;
     console.log(cursorX);
     console.log(cursorY)
-   // var q = Math.floor(cursorX/80);
+
 
 var p = Math.floor(cursorX/80);
 var q = Math.floor(cursorY/80);
+
+
 if(turn == 1 && arr[p][q]<5){
 arr[p][q]+=1;
 drawcircle();}
@@ -68,24 +75,43 @@ else if (turn==2){
     }
 }
 console.log(arr);
+
+
 function drawcircle(){
 
 ctx.beginPath();
+
 if(arr[p][q]==1 || arr[p][q]==5){
+    //ctx.beginPath();
     ctx.arc(p*80+40,q*80+40,20,0,2*Math.PI);
+    //ctx.stroke();
+   // ctx.closePath();
 }
 if(arr[p][q]==2 ||arr[p][q]==6){
+  
     ctx.arc(p*80+50,q*80+50,20,0,2*Math.PI);
+    
     ctx.beginPath();
     ctx.arc(p*80+30,q*80+30,20,0,2*Math.PI);
+    
+    //ctx.stroke();
 }
 if(arr[p][q]==3 ||arr[p][q]==7){
     ctx.arc(p*80+60,q*80+50,20,0,2*Math.PI);
+    
     ctx.beginPath();
     ctx.arc(p*80+40,q*80+40,20,0,2*Math.PI);
+    
     ctx.beginPath();
     ctx.arc(p*80+30,q*80+40,20,0,2*Math.PI);
+    //ctx.stroke();
 }
+if(arr[p][q]==4 || arr[p][q]==8){
+  split();
+  arr[p][q] = 0;
+
+}
+
 if(turn==1){
     ctx.fillStyle = "red";
 
@@ -99,10 +125,36 @@ console.log("g");
 if(turn==1)
 turn=2;
 else
-turn=1;
-
+turn=1;   
+    
 }
 
-
+function split(){
+    ctx.arc(p*80+40,(q-1)*80+40,20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(p*80+40,(q+1)*80+40,20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc((p-1)*80+40,q*80+40,20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc((p+1)*80+40,q*80+40,20,0,2*Math.PI);
 }
+
+}    
+ 
+
+
+
+
+
+
+
+
+
+
 
