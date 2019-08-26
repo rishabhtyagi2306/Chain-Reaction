@@ -8,11 +8,7 @@ body{
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
-canvas{
-    display: block;
-    margin: 0 auto;
-    background: #fff;
-}
+
 
 h1{
     font-family: 'Bree Serif', serif;
