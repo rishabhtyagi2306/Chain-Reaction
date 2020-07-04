@@ -58,9 +58,6 @@ var POP = {
         // the canvas context allows us to 
         // interact with the canvas api
         POP.ctx = POP.canvas.getContext('2d');
-        // we need to sniff out android & ios
-        // so we can hide the address bar in
-        // our resize function
         
 		window.addEventListener('click', function(e) {
             e.preventDefault();
